@@ -1,0 +1,15 @@
+{
+  "name": "test-port",
+  "version": "1.0.0",
+  "description": "Check if a given port is listening.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests"
+  },
+  "repository": "git@github.com:tehsis/test-buffer.git",
+  "author": "Pablo Terradillos <tehsis@gmail.com>",
+  "license": "ISC"
+}
