@@ -1,4 +1,4 @@
-# test-port
+# test-port [![Build Status](https://travis-ci.org/tehsis/test-port.svg?branch=master)](https://travis-ci.org/tehsis/test-port)
 
 Check if a given port is listening.
 
