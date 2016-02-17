@@ -9,7 +9,7 @@
   "scripts": {
     "test": "node tests"
   },
-  "repository": "git@github.com:tehsis/test-buffer.git",
+  "repository": "git@github.com:tehsis/test-port.git",
   "author": "Pablo Terradillos <tehsis@gmail.com>",
   "license": "ISC"
 }
