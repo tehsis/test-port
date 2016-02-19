@@ -2,31 +2,39 @@
 
 const net = require('net');
 
+function resolveorcb (cb, defer, resolved) {
+  if (cb) {
+    return cb(resolved);
+  }
+
+  return defer[resolved ? 'resolve' : 'reject']();
+}
+
 module.exports = function test_port (port, host, cb) {
+  let defer = Promise.defer();
+
   cb = cb || host;
   host = typeof host === 'string' ? host : undefined;
-
-  if ( typeof cb !== 'function' ) {
-    throw new Error('You must provide a callback');
-  }
 
   let tester = net.createConnection({port, host});
 
   tester.on('error', () => {
     tester.destroy();
-    cb(false);
+    resolveorcb(cb, defer, false);
   });
 
   tester.on('timeout', () => {
     tester.destroy();
-    cb(false);
+    resolveorcb(cb, defer, false);
   });
 
   tester.setTimeout(2000);
 
   tester.on('connect', () => {
     tester.destroy();
-    cb(true);
+    resolveorcb(cb, defer, true);
   });
-};
+
+  return defer.promise;
+}
 

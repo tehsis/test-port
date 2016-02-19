@@ -36,3 +36,16 @@ Check if a given port is listening.
   });
 ```
 
+* It also returns a promise
+
+```
+  const test_port = require('test-port');
+
+  test_port(80);
+    .done(() => {
+      console.log('port 80 is listening');
+    })
+    .catch(() => {
+      console.log('port 80 is not listening');
+    });
+```
